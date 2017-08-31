@@ -21,21 +21,23 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBAction func buttonTouch(Sender: AnyObject){
         if let bill = billInText.text {
             if let amount = Float(bill){
-                tip10OutText?.text = String (amount*0.1)
-                tip15OutText?.text = String (amount*0.15)
-                tip20OutText?.text = String (amount*0.2)
+                if amount > 0 {
+                    tip10OutText?.text = String (amount*0.1)
+                    tip15OutText?.text = String (amount*0.15)
+                    tip20OutText?.text = String (amount*0.2)
                 
-                total10OutText?.text = String (amount + (amount*0.1))
-                total15OutText?.text = String (amount + (amount*0.15))
-                total20OutText?.text = String (amount + (amount*0.2))
+                    total10OutText?.text = String (amount + (amount*0.1))
+                    total15OutText?.text = String (amount + (amount*0.15))
+                    total20OutText?.text = String (amount + (amount*0.2))
+                }
             }else{
-                tip10OutText?.text = String ()
-                tip15OutText?.text = String ()
-                tip20OutText?.text = String ()
+                tip10OutText?.text = nil
+                tip15OutText?.text = nil
+                tip20OutText?.text = nil
                     
-                total10OutText?.text = String ()
-                total15OutText?.text = String ()
-                total20OutText?.text = String ()
+                total10OutText?.text = nil
+                total15OutText?.text = nil
+                total20OutText?.text = nil
             }
         }
         billInText.resignFirstResponder()
