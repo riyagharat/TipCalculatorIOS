@@ -22,13 +22,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
         if let bill = billInText.text {
             if let amount = Float(bill){
                 if amount > 0 {
-                    tip10OutText?.text = String (amount*0.1)
-                    tip15OutText?.text = String (amount*0.15)
-                    tip20OutText?.text = String (amount*0.2)
+                    tip10OutText?.text = String (format: "%.2f", (amount*0.10))
+                    tip15OutText?.text = String (format: "%.2f", (amount*0.15))
+                    tip20OutText?.text = String (format: "%.2f", (amount*0.20))
                 
-                    total10OutText?.text = String (amount + (amount*0.1))
-                    total15OutText?.text = String (amount + (amount*0.15))
-                    total20OutText?.text = String (amount + (amount*0.2))
+                    total10OutText?.text = String (format: "%.2f", (amount + (amount*0.10)))
+                    total15OutText?.text = String (format: "%.2f", (amount + (amount*0.15)))
+                    total20OutText?.text = String (format: "%.2f", (amount + (amount*0.20)))
                 }
             }else{
                 tip10OutText?.text = nil
